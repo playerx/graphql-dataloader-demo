@@ -17,7 +17,7 @@ export default {
 
 	Account: {
 		user: async ({ userId }: Account, _, { db }: Context) => {
-			await delay(3000)
+			await delay(300)
 
 			return await db.user.load(userId)
 		},

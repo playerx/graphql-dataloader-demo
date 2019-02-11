@@ -28,7 +28,12 @@ export class UserModel extends DataLoader<string, User> {
 
 		user.name = name
 
-		this.clear(id)
+		/*
+		 Its not necessary to clear because
+		 new dataloaders are created per request
+		*/
+
+		// this.clear(id)
 
 		return this
 	}
