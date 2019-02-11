@@ -39,12 +39,12 @@ export class UserModel extends DataLoader<string, User> {
 	}
 }
 
-const batchLoaderFn = (_db) => (keys) => {
+const batchLoaderFn = (_db) => async (keys) => {
+	console.log('BatchLoad->users', keys)
+
 	const filteredUsers = users.filter(x => keys.indexOf(x.id) > -1)
 
-	const result = <User[]>keys.map(id => filteredUsers.find(x => x.id === id) || null)
-
-	return Promise.resolve(result)
+	return keys.map(id => filteredUsers.find(x => x.id === id) || null)
 }
 
 const users: User[] = [
