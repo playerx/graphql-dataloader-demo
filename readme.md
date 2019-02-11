@@ -16,10 +16,10 @@
         description
       }
     }
-    friends{
+    friends {
       id
       name
-      accounts{
+      accounts {
         id
         description
       }
