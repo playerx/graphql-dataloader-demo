@@ -65,6 +65,6 @@ const users: User[] = [
 		relatedUserIds: ['2'],
 		friendUserIds: ['3'],
 	},
-	{ id: '2', name: 'Babt', accountIds: ['4'], relatedUserIds: ['3'], friendUserIds: [] },
+	{ id: '2', name: 'Babt', accountIds: ['4'], relatedUserIds: [], friendUserIds: [] },
 	{ id: '3', name: 'PlayerX', accountIds: ['5'], relatedUserIds: [], friendUserIds: [] },
 ]
