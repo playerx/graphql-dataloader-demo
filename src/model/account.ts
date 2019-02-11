@@ -16,14 +16,12 @@ export class AccountModel extends DataLoader<string, Account> {
 	// mutations
 }
 
-const batchLoaderFn: (db) => DataLoader.BatchLoadFn<string, Account> = (_db) => (keys) => {
-	const data = accounts.filter(x => keys.indexOf(x.id) > -1)
+const batchLoaderFn = (_db) => (keys) => {
+	const filteredAccounts = accounts.filter(x => keys.indexOf(x.id) > -1)
 
-	// TODO: make sure ordering and length matches
+	const result = <Account[]>keys.map(id => filteredAccounts.find(x => x.id === id) || null)
 
-	console.log('UserLoader', keys)
-
-	return Promise.resolve(data)
+	return Promise.resolve(result)
 }
 
 const accounts: Account[] = [
