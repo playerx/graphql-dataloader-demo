@@ -32,7 +32,22 @@
 }
 ```
 
-result:
+## Database
+```ts
+const users: User[] = [
+	{
+		id: '1',
+		name: 'Ezeki',
+		accountIds: ['1', '2', '3'],
+		relatedUserIds: ['2'],
+		friendUserIds: ['3'],
+	},
+	{ id: '2', name: 'Babt', accountIds: ['4'], relatedUserIds: ['3'], friendUserIds: [] },
+	{ id: '3', name: 'PlayerX', accountIds: ['5'], relatedUserIds: [], friendUserIds: [] },
+]
+```
+
+## Batching Result
 
 ```
 BatchLoad->users [ '1' ]
