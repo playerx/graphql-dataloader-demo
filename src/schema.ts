@@ -14,6 +14,8 @@ type User {
 	id: ID!
 	name: String!
 	accounts: [Account!]!
+	relatedUsers: [User!]!
+	friends: [User!]!
 }
 
 type Account {

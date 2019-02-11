@@ -2,7 +2,7 @@ import { Account, Db, User } from '../model'
 
 interface Context { db: Db }
 
-const delay = (x) => new Promise(resolve => setTimeout(() => resolve(), x))
+// const delay = (x) => new Promise(resolve => setTimeout(() => resolve(), x))
 
 export default {
 	Query: {
@@ -13,14 +13,17 @@ export default {
 	User: {
 		accounts: ({ accountIds }: User, _, { db }: Context) =>
 			db.account.loadMany(accountIds),
+
+		relatedUsers: ({ relatedUserIds }: User, _, { db }: Context) =>
+			db.user.loadMany(relatedUserIds),
+
+		friends: ({ friendUserIds }: User, _, { db }: Context) =>
+			db.user.loadMany(friendUserIds),
 	},
 
 	Account: {
-		user: async ({ userId }: Account, _, { db }: Context) => {
-			await delay(300)
-
-			return await db.user.load(userId)
-		},
+		user: ({ userId }: Account, _, { db }: Context) =>
+			db.user.load(userId),
 	},
 
 	Mutation: {
